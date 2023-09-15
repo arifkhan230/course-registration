@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 import Card from "../Card/Card";
 import Cart from "../Cart/Cart";
 
@@ -19,7 +21,7 @@ const Home = () => {
     const handleSelect = (course) => {
         const isSelected = selectedCourses.find(item => item.id === course.id)
         if (isSelected) {
-            return alert('already booked')
+            return toast('You already booked this course')
         }
         else {
             const newSelectedCourse = [...selectedCourses, course];
@@ -32,45 +34,44 @@ const Home = () => {
             let newTotal = total + totalPrice;
 
             if(newCredit > 20){
-                return alert('credit finished')
+                return toast('Your credit hour is finished')
             }
             else{
                 setTotalCredit(newCredit)
                 setRemainingCredit(remaining)
                 setTotalPrice(newTotal)
             }
-
-           
-
-            
-
         }
 
     }
 
     return (
-        <div className="flex flex-col-reverse lg:flex-row max-w-[1440px] mx-auto gap-6">
+        <div className="flex flex-col-reverse lg:flex-row max-w-[1440px] mx-auto gap-6 mt-8 pb-12">
             {/* Card container */}
-            <div className="w-2/3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="w-3/4 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
                     courses.map(course => <Card
                         key={course.id}
                         course={course}
                         handleSelect={handleSelect}
                         
+                        
                     ></Card>)
+                    
                 }
+                <ToastContainer></ToastContainer>
 
             </div>
 
             {/* cart container */}
-            <div className="w-1/3">
+            <div className="w-3/4 mx-auto lg:w-1/4 bg-white lg:h-[540px] border-2 rounded-xl">
                 <Cart 
                 selectedCourses={selectedCourses}
                 totalCredit={totalCredit}
                 remainingCredit={remainingCredit}
                 totalPrice={totalPrice}
                 ></Cart>
+                
             </div>
 
         </div>

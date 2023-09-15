@@ -7,11 +7,11 @@ const Card = ({ course, handleSelect }) => {
 
     return (
         <div>
-            <div className='border-2 h-[402px] p-4 rounded-xl'>
-                <img src={img} alt="" />
+            <div className='border-2 p-4 rounded-xl bg-white'>
+                <img className='w-full' src={img} alt="" />
                 <h3 className='text-xl font-semibold mt-4 mb-2'>{course_name}</h3>
-                <p><small>{details}</small></p>
-                <div className='flex justify-between'>
+                <p>{details}</p>
+                <div className='flex justify-between mt-2'>
                     <div className='flex items-center gap-3'>
                         <h3><FiDollarSign></FiDollarSign></h3>
                         <p>Price: {price}</p>
@@ -22,7 +22,7 @@ const Card = ({ course, handleSelect }) => {
 
                     </div>
                 </div>
-                <button onClick={() => handleSelect(course)} className='btn btn-primary w-full mt-4'>select</button>
+                <button onClick={() => handleSelect(course)} className='btn btn-primary w-full mt-4 mb-2'>select</button>
             </div>
         </div>
     );
