@@ -1,4 +1,4 @@
-
+import { FiDollarSign,  FiBookOpen } from 'react-icons/fi';
 import PropTypes from 'prop-types';
 
 const Card = ({ course, handleSelect }) => {
@@ -12,10 +12,17 @@ const Card = ({ course, handleSelect }) => {
                 <h3 className='text-xl font-semibold mt-4 mb-2'>{course_name}</h3>
                 <p><small>{details}</small></p>
                 <div className='flex justify-between'>
-                    <p>Price: {price}</p>
-                    <p>Credit: {credit}</p>
+                    <div className='flex items-center gap-3'>
+                        <h3><FiDollarSign></FiDollarSign></h3>
+                        <p>Price: {price}</p>
+                    </div>
+                    <div className='flex items-center gap-3'>
+                        <h3><FiBookOpen></FiBookOpen></h3>
+                        <p>Credit: {credit}</p>
+
+                    </div>
                 </div>
-                <button onClick={()=>handleSelect(course)} className='btn btn-primary w-full mt-4'>select</button>
+                <button onClick={() => handleSelect(course)} className='btn btn-primary w-full mt-4'>select</button>
             </div>
         </div>
     );
