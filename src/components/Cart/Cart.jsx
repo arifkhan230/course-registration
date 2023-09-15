@@ -1,8 +1,8 @@
 
 import PropTypes from 'prop-types';
 
-const Cart = ({selectedCourses}) => {
-    // console.log(selectedCourses)
+const Cart = ({selectedCourses,totalCredit}) => {
+    console.log(totalCredit)
     return (
         <div>
             <h3 className='text-3xl font-bold border-b-2'> Course Name</h3>
@@ -13,13 +13,16 @@ const Cart = ({selectedCourses}) => {
                     ))
             }
 
+            <h3 className='text-lg font-medium'>Total Credit Hour : {totalCredit}</h3>
+
 
         </div>
     );
 };
 
 Cart.propTypes = {
-    selectedCourses : PropTypes.array
+    selectedCourses : PropTypes.array,
+    totalCredit : PropTypes.number
     
 };
 
