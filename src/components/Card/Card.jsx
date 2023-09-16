@@ -18,7 +18,7 @@ const Card = ({ course, handleSelect }) => {
                     </div>
                     <div className='flex items-center gap-3'>
                         <h3><FiBookOpen></FiBookOpen></h3>
-                        <p className='text-lg font-medium text-[#1C1B1B99]'>Credit: {credit}</p>
+                        <p className='text-lg font-medium text-[#1C1B1B99]'>Credit: {credit} hr</p>
                     </div>
                 </div>
                 <button onClick={() => handleSelect(course)} className='btn btn-primary w-full mt-4 mb-2'>select</button>
